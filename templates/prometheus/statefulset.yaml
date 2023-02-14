@@ -40,6 +40,8 @@ spec:
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      securityContext:
+        fsGroup: 2000
       containers:
       - args:
           - --config.file=/etc/prometheus/prometheus.yml
