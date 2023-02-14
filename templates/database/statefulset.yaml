@@ -69,6 +69,8 @@ spec:
         resources:
 {{ toYaml .Values.database.internal.resources | indent 10 }}
 {{- end }}
+        args:
+        - "--ignore-db-dir=lost+found"
         volumeMounts:
         - mountPath: /var/lib/mysql/
           name: database-data
